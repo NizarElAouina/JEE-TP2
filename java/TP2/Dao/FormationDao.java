@@ -120,12 +120,14 @@ public class FormationDao {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/JEETP2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","test");
-			String sql = "select * from TP2 where id = ? " ;
-			PreparedStatement pst = con.prepareStatement(sql);//"insert into TP2 (id, theme, id_lieu) values(?,?,?)"
-			System.out.println("updating records");
-			pst.setInt(1,idFormation);
-			pst.execute();
-			System.out.println(pst);
+			Statement pst = (Statement) con.createStatement(); //"insert into TP2 (id, theme, id_lieu) values(?,?,?)"
+			String sql = "select * from TP2 where id = "+idFormation ;
+			ResultSet rs= ((java.sql.Statement) pst).executeQuery(sql);
+			while (rs.next()) {
+				System.out.println ("ID de la Formation: " + rs.getInt(1));
+				System.out.println ("Thème : " + rs.getString(2));
+				System.out.println ("Lieu de la formation: " + rs.getInt(3));
+			}
 			con.close();
 			
 			
