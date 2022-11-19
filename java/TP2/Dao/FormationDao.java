@@ -46,6 +46,30 @@ public class FormationDao {
 			  System.out.println(e); 
 			  }
 	}
+	public void modifierThemeFormation(int id, String theme1) {
+		int idFormation = id;
+		String theme = theme1;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/JEETP2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","test");
+			String sql = "update TP2 set theme = ? where id = ? " ;
+			PreparedStatement pst = con.prepareStatement(sql);//"insert into TP2 (id, theme, id_lieu) values(?,?,?)"
+			System.out.println("updating records");
+			pst.setString(1,theme);
+			pst.setInt(2,idFormation);
+			pst.execute();
+			con.close();
+			
+		}catch(Exception e){
+			System.err.println("Got an exception!");
+			  // printStackTrace method 
+			  // prints line numbers + call stack
+			  e.printStackTrace();
+			  // Prints what exception has been thrown 
+			  System.out.println(e); 
+		}
+		
+	}
 	public Formation getF() {
 		return f;
 	}
@@ -58,6 +82,6 @@ public class FormationDao {
 	        FormationDao dao = new FormationDao();
 	        dao.f = f1;
 	        //System.out.println(f1.getIdLieu());
-	        dao.insererFormation(f1);
+	        dao.modifierThemeFormation(3,"Maths");
 	        }
 }
