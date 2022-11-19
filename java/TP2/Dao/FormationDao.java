@@ -94,6 +94,27 @@ public class FormationDao {
 		}
 		
 	}
+	public void supprimerFormation(int id) {
+		int idFormation = id;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/JEETP2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","test");
+			String sql = "delete from TP2 where id = ? " ;
+			PreparedStatement pst = con.prepareStatement(sql);//"insert into TP2 (id, theme, id_lieu) values(?,?,?)"
+			System.out.println("updating records");
+			pst.setInt(1,idFormation);
+			pst.execute();
+			con.close();
+			
+		}catch(Exception e){
+			System.err.println("Got an exception!");
+			  // printStackTrace method 
+			  // prints line numbers + call stack
+			  e.printStackTrace();
+			  // Prints what exception has been thrown 
+			  System.out.println(e); 
+		}
+	}
 	public Formation getF() {
 		return f;
 	}
@@ -102,10 +123,14 @@ public class FormationDao {
 	}
 	public static void main(String[] args) {
 			Lieu l1 = new Lieu(6, "Ziraoui", "Casablanca");
-	        Formation f1 = new Formation(3,"Physics", l1);
+	        //Formation f1 = new Formation(3,"Physics", l1);
+	        //FormationDao dao = new FormationDao();
+	        //dao.f = f1;
+	        //Formation f2 = new Formation(2,"Anglais", l1);
 	        FormationDao dao = new FormationDao();
-	        dao.f = f1;
+	        //dao.f=f2; // This line is not necessary at all, idk why I even set an attribue Formation f
+	        dao.supprimerFormation(2);
 	        //System.out.println(f1.getIdLieu());
-	        dao.modifierLieuFormation(3,4);
+	        //dao.modifierLieuFormation(3,4);
 	        }
 }
