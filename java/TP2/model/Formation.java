@@ -3,11 +3,11 @@ package TP2.model;
 public class Formation {
 	private int id;
 	private String theme;
-	private int id_lieu;
-	public Formation(int id, String theme, Lieu id_lieu) {
+	//private int id_lieu;
+	public Formation(int id, String theme) {//, Lieu id_lieu
 		this.id = id;
 		this.theme = theme;
-		this.id_lieu = id_lieu.getId();
+		//this.id_lieu = id_lieu.getId();
 	}
 	public int getId() {
 		return id;
@@ -24,11 +24,11 @@ public class Formation {
 	public void setTheme(String theme) {
 		this.theme = theme;
 	}
-	public int getIdLieu() {
+	/*public int getIdLieu() {
 		return id_lieu;
-	}
+	}*/
 	@Override
 	public String toString() {
-		return id +" " + " " + theme + " " + id_lieu;
+		return id +" " + " " + theme + " " ;//+ id_lieu
 	}
 }

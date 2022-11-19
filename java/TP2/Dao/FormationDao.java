@@ -16,7 +16,6 @@ import TP2.model.LigneFormationFormateur;
 import jakarta.servlet.RequestDispatcher;
 
 public class FormationDao {
-	private Formation f;
 	public FormationDao(){
 		
 	}
@@ -24,16 +23,16 @@ public class FormationDao {
 	public void insererFormation (Formation f) {
 		int idFormation = f.getId();
 		String theme = f.getTheme();
-		int idLieu = f.getIdLieu();
+		//int idLieu = f.getIdLieu();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/JEETP2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","test");
-			String sql = " insert into TP2 (id, theme, id_lieu)" + "values (?, ?, ?)";
+			String sql = " insert into TP2 (id, theme)" + "values (?, ?)";
 			PreparedStatement pst = con.prepareStatement(sql);//"insert into TP2 (id, theme, id_lieu) values(?,?,?)"
 			System.out.println("inserting records");
 			pst.setInt(1,idFormation);
 			pst.setString(2,theme);
-			pst.setInt(3,idLieu);
+			//pst.setInt(3,idLieu);
 			pst.execute();
 			con.close();
 		}  catch (Exception e)
@@ -140,11 +139,34 @@ public class FormationDao {
 			  System.out.println(e); 
 		}
 	}
-	public Formation getF() {
-		return f;
+	public void ajouterFormation(Formation f, int idLieu2) {
+		int idFormation = f.getId();
+		String theme = f.getTheme();
+		int idLieu = idLieu2;
+		//int idLieu = f.getIdLieu();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/JEETP2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","test");
+			String sql = " insert into TP2 (id, theme, id_lieu)" + "values (?, ?, ?)";
+			PreparedStatement pst = con.prepareStatement(sql);//"insert into TP2 (id, theme, id_lieu) values(?,?,?)"
+			System.out.println("inserting records");
+			pst.setInt(1,idFormation);
+			pst.setString(2,theme);
+			pst.setInt(3,idLieu);
+			//pst.setInt(3,idLieu);
+			pst.execute();
+			con.close();
+		}  catch (Exception e)
+		  {
+			  System.err.println("Got an exception!");
+			  // printStackTrace method 
+			  // prints line numbers + call stack
+			  e.printStackTrace();
+			  // Prints what exception has been thrown 
+			  System.out.println(e); 
+			  }
+		
 	}
-	public void setF3(Formation f) {
-		this.f = f;
-	}
+	
 	
 }

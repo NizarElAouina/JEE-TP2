@@ -23,7 +23,7 @@ public class LigneFormationFormateur {
 	@Override
 	public String toString() {
 		return CIN +" " + " " +id ;
-	}
+	}/*
 	 public static void main(String[] args) {
 	        Formateur f11 = new Formateur("BJ2341", "Nizar", 21);
 	        Lieu l1 = new Lieu(4, "Tachefine", "Casa");
@@ -36,5 +36,5 @@ public class LigneFormationFormateur {
 	        l1.setId(5);
 	        System.out.println(l1.toString());
 	        System.out.println(f22.toString());
-	        }
+	        }*/
 }

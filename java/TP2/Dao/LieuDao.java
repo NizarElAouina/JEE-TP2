@@ -112,9 +112,10 @@ public class LieuDao {
 		}
 	}
 	public static void main(String[] args) {
-		Lieu l2 = new Lieu(2, "Mohamed V", "Casablanca");
+		//Exemple d'exécution
+		//Lieu l2 = new Lieu(3, "Bd Ibn Tachefine", "Casablanca");
 		LieuDao lieuDao = new LieuDao();
-		lieuDao.insererLieu(l2);
+		//lieuDao.insererLieu(l2);
 		//lieuDao.selectLieu(1);
 		//lieuDao.modifierLieu(1,"Bd anfa","Temara");
 		//lieuDao.supprimerLieu(1);
