@@ -75,7 +75,7 @@ public class FormationDao {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/JEETP2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","test");
-			String sql = "update TP2 set id_lieu = ? where id = ? " ;
+			String sql = "update TP2 set idLieu = ? where id = ? " ;
 			PreparedStatement pst = con.prepareStatement(sql);//"insert into TP2 (id, theme, id_lieu) values(?,?,?)"
 			System.out.println("updating records");
 			pst.setInt(1,idLieu);
@@ -147,7 +147,7 @@ public class FormationDao {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/JEETP2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","test");
-			String sql = " insert into TP2 (id, theme, id_lieu)" + "values (?, ?, ?)";
+			String sql = " insert into TP2 (id, theme, idLieu)" + "values (?, ?, ?)";
 			PreparedStatement pst = con.prepareStatement(sql);//"insert into TP2 (id, theme, id_lieu) values(?,?,?)"
 			System.out.println("inserting records");
 			pst.setInt(1,idFormation);

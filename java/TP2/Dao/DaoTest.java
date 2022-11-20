@@ -8,7 +8,7 @@ public class DaoTest {
 		
         Formation f1 = new Formation(10,"Sciences humaines");
         FormationDao dao = new FormationDao(); //Instanciation de la classe FormationDao
-        dao.ajouterFormation(f1,3);
+        dao.ajouterFormation(f1, 2);
         //dao.f = f1;
         //Formation f2 = new Formation(2,"Anglais", l1);
         //dao.f=f2; // This line is not necessary at all, idk why I even set an attribue Formation f
